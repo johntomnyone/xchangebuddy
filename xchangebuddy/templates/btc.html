@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+ <div class="site-section bg-image2 overlay" id="contact-section" style="background-image: url(/static/xchangebuddy/images/blockchain-3440455_1280.jpg?{% now 'U' %});">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-12 text-center">
+          
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-lg-7 mb-5">
+          	<h2 class="section-title mb-3 text-white text-center">Payment Details</h2>
+
+            
+
+            <form action="#" class="p-5 bg-white">
+            	{% csrf_token %}
+              
+              <h2 class="h4 text-black mb-5">Fill the form</h2> 
+
+              <div class="row form-group">
+                <div class="col-md-6 mb-3 mb-md-0">
+                  <label class="text-black" for="fname">First Name</label>
+                  <input type="text" id="fname" class="form-control rounded-0">
+                </div>
+                <div class="col-md-6">
+                  <label class="text-black" for="lname">Last Name</label>
+                  <input type="text" id="lname" class="form-control rounded-0">
+                </div>
+              </div>
+
+              <div class="row form-group">
+                
+                <div class="col-md-12">
+                  <label class="text-black" for="email">Email</label> 
+                  <input type="email" id="email" class="form-control rounded-0">
+                </div>
+              </div>
+
+              <div class="row form-group">
+                
+                <div class="col-md-12">
+                  <label class="text-black" for="subject">Bitcoin Address</label> 
+                  <input type="subject" id="subject" class="form-control rounded-0">
+                </div>
+              </div>
+
+              <div class="row form-group">
+                <div class="col-md-12" id="paypalContainer">
+                  <script src="https://www.paypal.com/sdk/js?client-id=sb"></script>
+					<script>paypal.Buttons().render(document.getElementById('paypalContainer'));</script>
+                </div>
+              </div>
+
+  
+            </form>
+          </div>
+        
+        </div>
+        
+      </div>
+    </div>
+
+    {% endblock %}
