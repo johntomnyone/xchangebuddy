@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import django_heroku
+import dj_database_url
+from decouple import config
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -48,6 +51,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'xchangebuddysite.urls'
@@ -125,6 +129,8 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
 
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 
 # Email settings
 EMAIL_HOST = 'smtp.gmail.com'
@@ -133,3 +139,5 @@ EMAIL_HOST_USER = 'tom.nyone@gmail.com'
 EMAIL_HOST_PASSWORD = 'Nwinka01##'
 EMAIL_USE_TLS = True
 #  EMAIL_USE_SSL = False
+
+django_heroku.settings(locals())
