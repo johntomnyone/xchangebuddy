@@ -1,1 +1,1 @@
-web: gunicorn xchangebuddy.wsgi
+web: gunicorn xchangebuddysite.wsgi
